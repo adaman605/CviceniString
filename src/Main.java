@@ -75,26 +75,42 @@ public class Main {
         String jmeno = "jeRoNÝm rohLík";
         String[] jmenoPrijmeni = jmeno.split(" ");
 
-        for(int j = 0; j < jmenoPrijmeni.length; j++){
+        for(int i = 0; i < jmenoPrijmeni.length;i++){
+            String sToAdd = String.join("", ""+Character.toUpperCase(jmenoPrijmeni[i].charAt(0)), jmenoPrijmeni[i].substring(1).toLowerCase());
+            jmenoPrijmeni[i] = sToAdd;
+        }
+        jmeno= String.join(" ", jmenoPrijmeni);
+        System.out.println(jmeno);
 
-            for(int i = 0; i < jmenoPrijmeni[j].length() ; i++){
-                char[] stringArr = jmenoPrijmeni[j].toCharArray();
-                char pismeno;
-                if(i == 0){
-                    pismeno = ((""+jmenoPrijmeni[j].charAt(i)).toUpperCase()).charAt(0);
-                }else{
-                    pismeno = ((""+jmenoPrijmeni[j].charAt(i)).toLowerCase()).charAt(0);
-                }
+        System.out.println();
+        String rodneCislo1 = "750325/0999";
 
-                stringArr[i] = pismeno;
-                jmenoPrijmeni[j] = new String (stringArr);
+        int cisloKeKontrole = Integer.parseInt(rodneCislo1.substring(2,4));
+        if(  cisloKeKontrole >= 1 && cisloKeKontrole <= 12){
+            System.out.println("Muž");
+        }else if(cisloKeKontrole >= 51 && cisloKeKontrole <= 62){
+            System.out.println("Žena");
+        }else{
+            System.out.println("Nevim");
+        }
+
+        System.out.println();
+        int cislo1 = 12345;
+        int pocetCislic = (""+cislo1).length();
+        System.out.println(pocetCislic);
+
+        System.out.println();
+        String s = "kajalk";
+
+        boolean palindrom = true;
+        for(int i = 0; i < (s.length()-1)/2; i++){
+            if(s.charAt(i) != s.charAt(s.length()-1-i)){
+                palindrom = false;
             }
-
         }
-        for(String jm : jmenoPrijmeni){
-            System.out.print(jm +" ");
+        System.out.println(palindrom);
 
-        }
+        
 
     }
 }
